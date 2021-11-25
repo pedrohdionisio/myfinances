@@ -1,6 +1,6 @@
 function App() {
   return (
-   <h1>myfinances</h1>
+   <h1>MyFinances</h1>
   )
 }
 
