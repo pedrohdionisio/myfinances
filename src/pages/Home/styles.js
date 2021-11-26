@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 export const SearchInputContainer = styled.div`
   input {
@@ -22,5 +25,34 @@ export const SearchInputContainer = styled.div`
       font-size: 16px;
       color: #bcbcbc;
     }
+  }
+`
+
+export const ResumeContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 24px;
+
+  border-bottom: 2px solid ${({ theme }) => theme.colors.gray[100]};
+`
+
+export const ResumeItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    font-size: 24px;
+    color: ${({ theme }) => theme.colors.gray[900]};
+
+    margin-bottom: 8px;
+  }
+
+  span {
+    font-size: 18px;
+    font-weight: bold;
+    color: ${({ type }) => (type === 'minus' ? '#F97171' : '#6FEB7B')};
   }
 `
