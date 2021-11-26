@@ -7,6 +7,7 @@ import defaultTheme from '../../assets/styles/themes/default'
 import GlobalStyles from '../../assets/styles/global'
 
 import { Wrapper } from './styles'
+import Header from '../Header'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <ThemeProvider theme={defaultTheme}>
         <GlobalStyles />
         <Wrapper>
+          <Header />
           <Routes />
         </Wrapper>
       </ThemeProvider>
