@@ -1,8 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import {
-  Wrapper, SearchInputContainer, ResumeContainer, ResumeItem,
+  Wrapper, SearchInputContainer, ResumeContainer, ResumeItem, ListHeader,
 } from './styles'
+
+import arrow from '../../assets/images/arrow.svg'
 
 export default function Home() {
   return (
@@ -31,7 +34,14 @@ export default function Home() {
         </ResumeItem>
       </ResumeContainer>
 
-      
+      <ListHeader>
+        <div>
+          <span>Nome</span>
+          <img src={arrow} alt="Filter" />
+        </div>
+
+        <Link to="/new">Nova transação</Link>
+      </ListHeader>
     </Wrapper>
   )
 }

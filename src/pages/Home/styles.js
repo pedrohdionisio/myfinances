@@ -56,3 +56,39 @@ export const ResumeItem = styled.div`
     color: ${({ type }) => (type === 'minus' ? '#F97171' : '#6FEB7B')};
   }
 `
+
+export const ListHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 24px;
+
+  div {
+    display: flex;
+    align-items: center;
+
+    span {
+      font-weight: bold;
+      color: ${({ theme }) => theme.colors.primary.main};
+      margin-right: 8px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: 700;
+    color: ${({ theme }) => theme.colors.primary.main};
+
+    border: 2px solid;
+    border-radius: 4px;
+    padding: 12px 14px;
+
+    transition: all 0.5s ease-in;
+
+    &:hover {
+      background: ${({ theme }) => theme.colors.primary.main};
+      color: #fff;
+    }
+  }
+`
