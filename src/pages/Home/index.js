@@ -59,7 +59,7 @@ export default function Home() {
         </div>
 
         <div className="actions">
-          <Link to="/edit">
+          <Link to="/edit/01">
             <img src={edit} alt="Editar item" />
           </Link>
           <img src={trash} alt="Excluir item" />
@@ -78,7 +78,7 @@ export default function Home() {
         </div>
 
         <div className="actions">
-          <Link to="/edit">
+          <Link to="/edit/01">
             <img src={edit} alt="Editar item" />
           </Link>
           <img src={trash} alt="Excluir item" />
