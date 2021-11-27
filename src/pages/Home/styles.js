@@ -53,7 +53,7 @@ export const ResumeItem = styled.div`
   span {
     font-size: 18px;
     font-weight: bold;
-    color: ${({ type }) => (type === 'minus' ? '#F97171' : '#6FEB7B')};
+    color: ${({ type }) => (type === 'expense' ? '#F97171' : '#6FEB7B')};
   }
 `
 
@@ -106,7 +106,7 @@ export const Card = styled.div`
 
   border-radius: 5px;
 
-  margin: 24px 0;
+  margin-top: 24px;
   padding: 16px;
 
   .info {
@@ -148,7 +148,7 @@ export const Card = styled.div`
 
       font-weight: bold;
       font-size: 24px;
-      color: ${({ theme }) => theme.colors.danger.main};
+      color: ${({ type }) => (type === 'expense' ? '#F97171' : '#6FEB7B')};
     }
   }
 
