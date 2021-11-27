@@ -8,7 +8,7 @@ export default createGlobalStyle`
   }
 
   body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Sora', sans-serif;
     background: ${({ theme }) => theme.colors.primary.background};
   }
 

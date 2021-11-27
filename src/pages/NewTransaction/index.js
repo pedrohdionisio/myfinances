@@ -1,9 +1,10 @@
 import React from 'react'
+import PageHeader from '../../components/PageHeader'
 
 export default function NewTransaction() {
   return (
     <div>
-      New transaction
+      <PageHeader title="Nova transação" />
     </div>
   )
 }
