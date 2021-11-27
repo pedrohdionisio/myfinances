@@ -92,3 +92,75 @@ export const ListHeader = styled.div`
     }
   }
 `
+
+export const Card = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  height: 120px;
+
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+
+  border-radius: 5px;
+
+  margin: 24px 0;
+  padding: 16px;
+
+  .info {
+    .info-header {
+      display: flex;
+      align-items: center;
+
+      margin-bottom: 8px;
+
+      .name {
+        font-weight: bold;
+        color: ${({ theme }) => theme.colors.gray[900]};
+        margin-right: 16px;
+      }
+
+      .category {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 12px;
+
+        color: ${({ theme }) => theme.colors.primary.main};
+        background: ${({ theme }) => theme.colors.primary.lighter};
+
+        padding: 3px 8px;
+
+        border-radius: 5px;
+      }
+    }
+
+    .date {
+      display: block;
+      font-size: 14px;
+      color: ${({ theme }) => theme.colors.gray[200]};
+      margin-bottom: 12px;
+    }
+
+    .price {
+      display: block;
+
+      font-weight: bold;
+      font-size: 24px;
+      color: ${({ theme }) => theme.colors.danger.main};
+    }
+  }
+
+  .actions {
+    img {
+      cursor: pointer;
+    }
+
+    a {
+      img {
+        margin-right: 8px;
+      }
+    }
+  }
+`

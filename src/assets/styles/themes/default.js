@@ -2,7 +2,7 @@ export default {
   colors: {
     primary: {
       main: '#36C044',
-      lighter: '#E0E3FF',
+      lighter: '#E1FFE0',
       background: '#F6F5FC',
     },
     danger: {

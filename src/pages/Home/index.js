@@ -2,19 +2,23 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import {
-  Wrapper, SearchInputContainer, ResumeContainer, ResumeItem, ListHeader,
+  Wrapper,
+  SearchInputContainer,
+  ResumeContainer,
+  ResumeItem,
+  ListHeader,
+  Card,
 } from './styles'
 
 import arrow from '../../assets/images/arrow.svg'
+import edit from '../../assets/images/edit.svg'
+import trash from '../../assets/images/trash.svg'
 
 export default function Home() {
   return (
     <Wrapper>
       <SearchInputContainer>
-        <input
-          type="text"
-          placeholder="Pesquisar transações..."
-        />
+        <input type="text" placeholder="Pesquisar transações..." />
       </SearchInputContainer>
 
       <ResumeContainer>
@@ -42,6 +46,25 @@ export default function Home() {
 
         <Link to="/new">Nova transação</Link>
       </ListHeader>
+
+      <Card>
+        <div className="info">
+          <div className="info-header">
+            <h3 className="name">Netflix</h3>
+            <span className="category">Lazer</span>
+          </div>
+
+          <span className="date">Realizada em: 16/02/2021</span>
+          <span className="price">R$45,00</span>
+        </div>
+
+        <div className="actions">
+          <Link to="/edit">
+            <img src={edit} alt="Editar item" />
+          </Link>
+          <img src={trash} alt="Excluir item" />
+        </div>
+      </Card>
     </Wrapper>
   )
 }
