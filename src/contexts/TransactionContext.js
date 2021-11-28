@@ -1,16 +1,20 @@
 import PropTypes from 'prop-types'
 
-import { createContext, useContext } from 'react'
+import { createContext, useContext, useReducer } from 'react'
+import transactionReducer from '../reducers/transactionReducer'
 
 const TransactionContext = createContext()
 
 export const TransactionProvider = ({ children }) => {
-  const initialValue = {
+  const initialState = {
     transactions: [],
   }
 
+  // eslint-disable-next-line no-unused-vars
+  const [state, dispatch] = useReducer(transactionReducer, initialState)
+
   return (
-    <TransactionContext.Provider value={{ initialValue }}>
+    <TransactionContext.Provider value={{ state }}>
       {children}
     </TransactionContext.Provider>
   )
