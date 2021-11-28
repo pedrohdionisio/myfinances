@@ -58,7 +58,6 @@ export default function TransactionForm({ buttonLabel }) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(name, value, type, category, date.replace('-', '/'))
   }
 
   return (
