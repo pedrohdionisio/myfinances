@@ -5,21 +5,25 @@ import Routes from '../../Routes'
 
 import defaultTheme from '../../assets/styles/themes/default'
 import GlobalStyles from '../../assets/styles/global'
-
 import { Wrapper } from './styles'
+
+import { TransactionProvider } from '../../contexts/TransactionContext'
+
 import Header from '../Header'
 
 function App() {
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={defaultTheme}>
-        <GlobalStyles />
-        <Wrapper>
-          <Header />
-          <Routes />
-        </Wrapper>
-      </ThemeProvider>
-    </BrowserRouter>
+    <TransactionProvider>
+      <BrowserRouter>
+        <ThemeProvider theme={defaultTheme}>
+          <GlobalStyles />
+          <Wrapper>
+            <Header />
+            <Routes />
+          </Wrapper>
+        </ThemeProvider>
+      </BrowserRouter>
+    </TransactionProvider>
   )
 }
 
