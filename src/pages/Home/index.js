@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import {
@@ -16,12 +16,25 @@ import trash from '../../assets/images/trash.svg'
 import { useTransaction } from '../../contexts/TransactionContext'
 
 export default function Home() {
+  const [searchTerm, setSearchTerm] = useState('')
+
   const { state } = useTransaction()
+
+  const { transactions } = state
+
+  const filteredTransactions = useMemo(() => transactions.filter((transaction) => (
+    transaction.name.toLowerCase().includes(searchTerm.toLowerCase())
+  )), [transactions, searchTerm])
 
   return (
     <Wrapper>
       <SearchInputContainer>
-        <input type="text" placeholder="Pesquisar transações..." />
+        <input
+          type="text"
+          placeholder="Pesquisar transações..."
+          value={searchTerm}
+          onChange={({ target }) => setSearchTerm(target.value)}
+        />
       </SearchInputContainer>
 
       <ResumeContainer>
@@ -50,7 +63,7 @@ export default function Home() {
         <Link to="/new">Nova transação</Link>
       </ListHeader>
 
-      {state.transactions.map((transaction) => (
+      {filteredTransactions.map((transaction) => (
         <Card key={transaction.id} type={transaction.type}>
           <div className="info">
             <div className="info-header">

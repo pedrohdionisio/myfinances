@@ -16,6 +16,14 @@ export const TransactionProvider = ({ children }) => {
         date: '28/11/2021',
         price: '45,00',
       },
+      {
+        id: 2,
+        name: 'Salário',
+        type: 'revenue',
+        category: 'Trabalho',
+        date: '28/11/2021',
+        price: '1.300,00',
+      },
     ],
   }
 
