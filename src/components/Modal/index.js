@@ -5,7 +5,7 @@ import Button from '../Button'
 import { useTransaction } from '../../contexts/TransactionContext'
 
 export default function Modal() {
-  const { state, handleRemoveTransaction } = useTransaction()
+  const { state, handleRemoveTransaction, handleCloseModal } = useTransaction()
 
   return ReactDOM.createPortal(
     <Overlay active={state.modal.active}>
@@ -14,12 +14,19 @@ export default function Modal() {
         <p>{state.modal.message}</p>
 
         <Footer>
-          <button type="button" className="cancel-button">Cancelar</button>
+          <button
+            type="button"
+            className="cancel-button"
+            onClick={handleCloseModal}
+          >
+            Cancelar
+          </button>
           <Button
             type="button"
             danger={state.modal.danger}
             onClick={() => handleRemoveTransaction(state.modal.deletedItemId)}
-          >Deletar
+          >
+            Deletar
           </Button>
         </Footer>
       </Container>

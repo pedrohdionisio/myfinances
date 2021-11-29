@@ -28,7 +28,11 @@ export const TransactionProvider = ({ children }) => {
   }
 
   function handleModalActive(modal) {
-    dispatch({ type: 'MODAL', payload: modal })
+    dispatch({ type: 'ACTIVE_MODAL', payload: modal })
+  }
+
+  function handleCloseModal() {
+    dispatch({ type: 'CLOSE_MODAL' })
   }
 
   return (
@@ -37,6 +41,7 @@ export const TransactionProvider = ({ children }) => {
       handleAddTransaction,
       handleModalActive,
       handleRemoveTransaction,
+      handleCloseModal,
     }}
     >
       {children}

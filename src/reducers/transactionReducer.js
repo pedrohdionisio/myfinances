@@ -14,8 +14,19 @@ const transactionReducer = (state, action) => {
         },
         transactions: state.transactions.filter((item) => item.id !== action.payload),
       }
-    case 'MODAL':
+    case 'ACTIVE_MODAL':
       return { ...state, modal: action.payload }
+    case 'CLOSE_MODAL':
+      return {
+        ...state,
+        modal: {
+          active: false,
+          danger: false,
+          selectedItemId: null,
+          title: '',
+          message: '',
+        },
+      }
     default:
       return state
   }
