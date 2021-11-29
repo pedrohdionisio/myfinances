@@ -30,8 +30,10 @@ export const SearchInputContainer = styled.div`
 
 export const ResumeContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: ${({ justifyContent }) => justifyContent};
   align-items: center;
+
+  width: 100%;
 
   padding-bottom: 24px;
 
@@ -74,22 +76,24 @@ export const ListHeader = styled.div`
       margin-right: 8px;
     }
   }
+`
 
-  a {
-    text-decoration: none;
-    font-weight: 700;
-    color: ${({ theme }) => theme.colors.primary.main};
+export const NewTransactionButton = styled.button`
+  text-decoration: none;
+  font-weight: 700;
 
-    border: 2px solid;
-    border-radius: 4px;
-    padding: 12px 14px;
+  background: transparent;
+  color: ${({ theme }) => theme.colors.primary.main};
 
-    transition: all 0.5s ease-in;
+  border: 2px solid ${({ theme }) => theme.colors.primary.main};
+  border-radius: 4px;
+  padding: 12px 14px;
 
-    &:hover {
-      background: ${({ theme }) => theme.colors.primary.main};
-      color: #fff;
-    }
+  transition: all 0.5s ease-in;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.primary.main};
+    color: #fff;
   }
 `
 
@@ -161,6 +165,25 @@ export const Card = styled.div`
       img {
         margin-right: 8px;
       }
+    }
+  }
+`
+
+export const EmptyListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    margin: 24px 0;
+  }
+
+  p {
+    text-align: center;
+    color: ${({ theme }) => theme.colors.gray[200]};
+
+    strong {
+      color: ${({ theme }) => theme.colors.primary.main};
     }
   }
 `
