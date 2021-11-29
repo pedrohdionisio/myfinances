@@ -13,8 +13,11 @@ import {
 import arrow from '../../assets/images/arrow.svg'
 import edit from '../../assets/images/edit.svg'
 import trash from '../../assets/images/trash.svg'
+import { useTransaction } from '../../contexts/TransactionContext'
 
 export default function Home() {
+  const { state } = useTransaction()
+
   return (
     <Wrapper>
       <SearchInputContainer>
@@ -47,43 +50,26 @@ export default function Home() {
         <Link to="/new">Nova transação</Link>
       </ListHeader>
 
-      <Card type="expense">
-        <div className="info">
-          <div className="info-header">
-            <h3 className="name">Netflix</h3>
-            <span className="category">Lazer</span>
+      {state.transactions.map((transaction) => (
+        <Card key={transaction.id} type={transaction.type}>
+          <div className="info">
+            <div className="info-header">
+              <h3 className="name">{transaction.name}</h3>
+              <span className="category">{transaction.category}</span>
+            </div>
+
+            <span className="date">Realizada em: {transaction.date}</span>
+            <span className="price">R${transaction.price}</span>
           </div>
 
-          <span className="date">Realizada em: 16/02/2021</span>
-          <span className="price">R$45,00</span>
-        </div>
-
-        <div className="actions">
-          <Link to="/edit/01">
-            <img src={edit} alt="Editar item" />
-          </Link>
-          <img src={trash} alt="Excluir item" />
-        </div>
-      </Card>
-
-      <Card type="revenue">
-        <div className="info">
-          <div className="info-header">
-            <h3 className="name">Netflix</h3>
-            <span className="category">Lazer</span>
+          <div className="actions">
+            <Link to="/edit/01">
+              <img src={edit} alt="Editar item" />
+            </Link>
+            <img src={trash} alt="Excluir item" />
           </div>
-
-          <span className="date">Realizada em: 16/02/2021</span>
-          <span className="price">R$45,00</span>
-        </div>
-
-        <div className="actions">
-          <Link to="/edit/01">
-            <img src={edit} alt="Editar item" />
-          </Link>
-          <img src={trash} alt="Excluir item" />
-        </div>
-      </Card>
+        </Card>
+      ))}
     </Wrapper>
   )
 }

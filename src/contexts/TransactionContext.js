@@ -7,7 +7,16 @@ const TransactionContext = createContext()
 
 export const TransactionProvider = ({ children }) => {
   const initialState = {
-    transactions: [],
+    transactions: [
+      {
+        id: 1,
+        name: 'Netflix',
+        type: 'expense',
+        category: 'Lazer',
+        date: '28/11/2021',
+        price: '45,00',
+      },
+    ],
   }
 
   // eslint-disable-next-line no-unused-vars
