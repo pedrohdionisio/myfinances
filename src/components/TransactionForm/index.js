@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { useHistory } from 'react-router-dom'
 
 import { ButtonContainer, Wrapper } from './styles'
 
@@ -11,7 +12,7 @@ import Button from '../Button'
 import useErrors from '../../hooks/useErrors'
 
 import formatValue from '../../utils/formatValue'
-// import formatDate from '../../utils/formatDate'
+import { useTransaction } from '../../contexts/TransactionContext'
 
 export default function TransactionForm({ buttonLabel }) {
   const [name, setName] = useState('')
@@ -25,6 +26,10 @@ export default function TransactionForm({ buttonLabel }) {
   } = useErrors()
 
   const isFormValid = name && value && type && category && date && errors.length === 0
+
+  const { handleAddTransaction } = useTransaction()
+
+  const history = useHistory()
 
   function handleNameChange({ target }) {
     setName(target.value)
@@ -58,6 +63,18 @@ export default function TransactionForm({ buttonLabel }) {
 
   function handleSubmit(e) {
     e.preventDefault()
+    handleAddTransaction(
+      {
+        id: Math.random(),
+        name,
+        value,
+        type,
+        category,
+        date,
+      },
+    )
+
+    history.push('/')
   }
 
   return (

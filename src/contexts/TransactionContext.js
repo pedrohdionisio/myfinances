@@ -7,31 +7,21 @@ const TransactionContext = createContext()
 
 export const TransactionProvider = ({ children }) => {
   const initialState = {
-    transactions: [
-      {
-        id: 1,
-        name: 'Netflix',
-        type: 'expense',
-        category: 'Lazer',
-        date: '28/11/2021',
-        price: '45,00',
-      },
-      {
-        id: 2,
-        name: 'Salário',
-        type: 'revenue',
-        category: 'Trabalho',
-        date: '28/11/2021',
-        price: '1.300,00',
-      },
-    ],
+    transactions: [],
   }
 
-  // eslint-disable-next-line no-unused-vars
   const [state, dispatch] = useReducer(transactionReducer, initialState)
 
+  function handleAddTransaction(transaction) {
+    dispatch({ type: 'ADD_ITEM', payload: transaction })
+  }
+
   return (
-    <TransactionContext.Provider value={{ state }}>
+    <TransactionContext.Provider value={{
+      state,
+      handleAddTransaction,
+    }}
+    >
       {children}
     </TransactionContext.Provider>
   )

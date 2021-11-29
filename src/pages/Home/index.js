@@ -98,7 +98,7 @@ export default function Home() {
             </EmptySearchContainer>
           )}
 
-          {filteredTransactions.map((transaction) => (
+          {filteredTransactions.reverse().map((transaction) => (
             <Card key={transaction.id} type={transaction.type}>
               <div className="info">
                 <div className="info-header">
@@ -107,7 +107,7 @@ export default function Home() {
                 </div>
 
                 <span className="date">Realizada em: {transaction.date}</span>
-                <span className="price">R${transaction.price}</span>
+                <span className="price">R${transaction.value}</span>
               </div>
 
               <div className="actions">
