@@ -35,6 +35,10 @@ export const TransactionProvider = ({ children }) => {
     dispatch({ type: 'CLOSE_MODAL' })
   }
 
+  function handleEditTransaction(transaction) {
+    dispatch({ type: 'EDIT_ITEM', payload: transaction })
+  }
+
   return (
     <TransactionContext.Provider value={{
       state,
@@ -42,6 +46,7 @@ export const TransactionProvider = ({ children }) => {
       handleModalActive,
       handleRemoveTransaction,
       handleCloseModal,
+      handleEditTransaction,
     }}
     >
       {children}

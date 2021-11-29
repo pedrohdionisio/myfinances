@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import { v4 as uuid } from 'uuid';
@@ -16,7 +16,7 @@ import useErrors from '../../hooks/useErrors'
 import formatValue from '../../utils/formatValue'
 import { useTransaction } from '../../contexts/TransactionContext'
 
-export default function TransactionForm({ buttonLabel }) {
+export default function TransactionForm({ buttonLabel, updatedUser }) {
   const [name, setName] = useState('')
   const [value, setValue] = useState('')
   const [type, setType] = useState('')
@@ -29,9 +29,19 @@ export default function TransactionForm({ buttonLabel }) {
 
   const isFormValid = name && value && type && category && date && errors.length === 0
 
-  const { handleAddTransaction } = useTransaction()
+  const { handleAddTransaction, handleEditTransaction } = useTransaction()
 
   const history = useHistory()
+
+  useEffect(() => {
+    if (updatedUser) {
+      setName(updatedUser[0].name)
+      setValue(updatedUser[0].value)
+      setType(updatedUser[0].type)
+      setCategory(updatedUser[0].category)
+      setDate(updatedUser[0].date)
+    }
+  }, [updatedUser])
 
   function handleNameChange({ target }) {
     setName(target.value)
@@ -65,18 +75,30 @@ export default function TransactionForm({ buttonLabel }) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    handleAddTransaction(
-      {
-        id: uuid(),
+    if (!updatedUser) {
+      handleAddTransaction(
+        {
+          id: uuid(),
+          name,
+          value,
+          type,
+          category,
+          date,
+        },
+      )
+
+      history.push('/')
+    } else if (updatedUser) {
+      handleEditTransaction({
+        id: updatedUser[0].id,
         name,
         value,
         type,
         category,
         date,
-      },
-    )
-
-    history.push('/')
+      })
+      history.push('/')
+    }
   }
 
   return (
@@ -140,4 +162,5 @@ export default function TransactionForm({ buttonLabel }) {
 
 TransactionForm.propTypes = {
   buttonLabel: PropTypes.string.isRequired,
+  updatedUser: PropTypes.object.isRequired,
 }
