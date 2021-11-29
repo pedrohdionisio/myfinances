@@ -20,11 +20,12 @@ import empty from '../../assets/images/empty.svg'
 import noFinance from '../../assets/images/no-finance.svg'
 
 import { useTransaction } from '../../contexts/TransactionContext'
+import Modal from '../../components/Modal'
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('')
 
-  const { state } = useTransaction()
+  const { state, handleModalActive } = useTransaction()
 
   const { transactions } = state
 
@@ -114,12 +115,24 @@ export default function Home() {
                 <Link to="/edit/01">
                   <img src={edit} alt="Editar item" />
                 </Link>
-                <img src={trash} alt="Excluir item" />
+                <img
+                  src={trash}
+                  alt="Excluir item"
+                  onClick={() => handleModalActive({
+                    active: true,
+                    danger: true,
+                    deletedItemId: transaction.id,
+                    title: `Tem certeza que deseja remover a transação ”${transaction.name}”?`,
+                    message: 'Esta ação não poderá ser desfeita!',
+                  })}
+                />
               </div>
             </Card>
           ))}
         </>
       )}
+
+      <Modal />
     </Wrapper>
   )
 }

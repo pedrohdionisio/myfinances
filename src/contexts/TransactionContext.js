@@ -8,6 +8,13 @@ const TransactionContext = createContext()
 export const TransactionProvider = ({ children }) => {
   const initialState = {
     transactions: [],
+    modal: {
+      active: false,
+      danger: false,
+      deletedItemId: null,
+      title: 'teste',
+      message: 'teste',
+    },
   }
 
   const [state, dispatch] = useReducer(transactionReducer, initialState)
@@ -16,10 +23,20 @@ export const TransactionProvider = ({ children }) => {
     dispatch({ type: 'ADD_ITEM', payload: transaction })
   }
 
+  function handleRemoveTransaction(id) {
+    dispatch({ type: 'REMOVE_ITEM', payload: id })
+  }
+
+  function handleModalActive(modal) {
+    dispatch({ type: 'MODAL', payload: modal })
+  }
+
   return (
     <TransactionContext.Provider value={{
       state,
       handleAddTransaction,
+      handleModalActive,
+      handleRemoveTransaction,
     }}
     >
       {children}
