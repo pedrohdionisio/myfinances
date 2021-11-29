@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-no-bind */
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+
+import { v4 as uuid } from 'uuid';
 import { useHistory } from 'react-router-dom'
 
 import { ButtonContainer, Wrapper } from './styles'
@@ -65,7 +67,7 @@ export default function TransactionForm({ buttonLabel }) {
     e.preventDefault()
     handleAddTransaction(
       {
-        id: Math.random(),
+        id: uuid(),
         name,
         value,
         type,

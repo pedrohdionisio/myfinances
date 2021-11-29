@@ -112,7 +112,7 @@ export default function Home() {
               </div>
 
               <div className="actions">
-                <Link to="/edit/01">
+                <Link to={`/edit/${transaction.id}`}>
                   <img src={edit} alt="Editar item" />
                 </Link>
                 <img
