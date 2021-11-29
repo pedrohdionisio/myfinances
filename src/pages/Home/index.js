@@ -10,12 +10,14 @@ import {
   Card,
   NewTransactionButton,
   EmptyListContainer,
+  EmptySearchContainer,
 } from './styles'
 
 import arrow from '../../assets/images/arrow.svg'
 import edit from '../../assets/images/edit.svg'
 import trash from '../../assets/images/trash.svg'
 import empty from '../../assets/images/empty.svg'
+import noFinance from '../../assets/images/no-finance.svg'
 
 import { useTransaction } from '../../contexts/TransactionContext'
 
@@ -76,16 +78,25 @@ export default function Home() {
             </ResumeItem>
           </ResumeContainer>
 
-          <ListHeader>
-            <div>
-              <span>Nome</span>
-              <img src={arrow} alt="Filter" />
-            </div>
+          {filteredTransactions.length > 0 && (
+            <ListHeader>
+              <div>
+                <span>Nome</span>
+                <img src={arrow} alt="Filter" />
+              </div>
 
-            <Link to="/new">
-              <NewTransactionButton>Nova transação</NewTransactionButton>
-            </Link>
-          </ListHeader>
+              <Link to="/new">
+                <NewTransactionButton>Nova transação</NewTransactionButton>
+              </Link>
+            </ListHeader>
+          )}
+
+          {filteredTransactions.length === 0 && (
+            <EmptySearchContainer>
+              <img src={noFinance} alt="Search" />
+              <p>Nenhum resultado foi encontrado para <strong>”{searchTerm}”</strong>.</p>
+            </EmptySearchContainer>
+          )}
 
           {filteredTransactions.map((transaction) => (
             <Card key={transaction.id} type={transaction.type}>

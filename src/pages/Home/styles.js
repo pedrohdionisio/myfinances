@@ -187,3 +187,23 @@ export const EmptyListContainer = styled.div`
     }
   }
 `
+
+export const EmptySearchContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
+
+  margin-top: 24px;
+
+  img {
+    margin-right: 16px;
+  }
+
+  p {
+    color: ${({ theme }) => theme.colors.gray[200]};
+    word-break: break-all;
+
+    strong {
+      color: ${({ theme }) => theme.colors.gray[900]};
+    }
+  }
+`
