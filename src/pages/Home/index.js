@@ -20,6 +20,8 @@ import empty from '../../assets/images/empty.svg'
 import noFinance from '../../assets/images/no-finance.svg'
 
 import { useTransaction } from '../../contexts/TransactionContext'
+import formatDate from '../../utils/formatDate'
+
 import Modal from '../../components/Modal'
 
 export default function Home() {
@@ -107,7 +109,7 @@ export default function Home() {
                   <span className="category">{transaction.category}</span>
                 </div>
 
-                <span className="date">Realizada em: {transaction.date}</span>
+                <span className="date">Realizada em: {formatDate(transaction.date)}</span>
                 <span className="price">R${transaction.value}</span>
               </div>
 
