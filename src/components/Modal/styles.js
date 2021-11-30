@@ -23,8 +23,8 @@ export const Container = styled.div`
   flex-direction: column;
 
   width: 100%;
-  max-width: 450px;
-  height: 200px;
+  max-width: 500px;
+  min-height: 200px;
   padding: 24px;
 
   background: #FFF;

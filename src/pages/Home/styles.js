@@ -117,17 +117,25 @@ export const Card = styled.div`
     .info-header {
       display: flex;
       align-items: center;
+      width: 100%;
 
       margin-bottom: 8px;
 
       .name {
+        overflow: hidden;
+        text-transform: uppercase;
+        text-overflow: ellipsis;
+        max-width: 200px;
         font-weight: bold;
         color: ${({ theme }) => theme.colors.gray[900]};
         margin-right: 16px;
       }
 
       .category {
+        overflow: hidden;
         text-transform: uppercase;
+        text-overflow: ellipsis;
+        max-width: 150px;
         font-weight: 900;
         font-size: 12px;
 
