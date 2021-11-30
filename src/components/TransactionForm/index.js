@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+/* eslint-disable no-return-assign */
+import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import { v4 as uuid } from 'uuid';
@@ -31,6 +32,7 @@ export default function TransactionForm({ buttonLabel, updatedUser }) {
   const { handleAddTransaction, handleEditTransaction } = useTransaction()
 
   const history = useHistory()
+  const ref = useRef()
 
   useEffect(() => {
     if (updatedUser) {
@@ -133,8 +135,10 @@ export default function TransactionForm({ buttonLabel, updatedUser }) {
 
       <FormGroup>
         <Input
-          type="date"
-          placeholder="Data*"
+          type="text"
+          ref={ref}
+          onFocus={() => (ref.current.type = 'date')}
+          placeholder="Data da transação*"
           onChange={({ target }) => setDate(target.value)}
           value={date}
         />
