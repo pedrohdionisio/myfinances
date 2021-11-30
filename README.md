@@ -15,7 +15,7 @@ Olá! Este é um projeto de um gerenciador de finanças pessoais. Foi construíd
 
 Primeiro, faça um clone do repositório em seu computador:
 
-    git clone https://github.com/pedrohdionisio/pokedex-project.git
+    git clone https://github.com/pedrohdionisio/my-finances.git
 
 Após isso, acesse a pasta do projeto e instale as dependências utilizando o seguinte comando:
 
@@ -39,9 +39,9 @@ Ou, caso você utilize npm:
 
 Caso queira ver a aplicação rodando, clique [aqui](https://myfinances-pedrohdionisio.netlify.app/).
 
-![Gif de funcionamento da aplicação.](https://github.com/pedrohdionisio/pokedex-project/blob/main/pokedex.gif?raw=true)
+![Gif de funcionamento da aplicação.](https://github.com/pedrohdionisio/my-finances/blob/main/myfinances.gif?raw=true)
 
 Comportamento no Mobile:
 
-![Gif de funcionamento da aplicação mobile.](https://github.com/pedrohdionisio/pokedex-project/blob/main/pokedex-mobile.gif?raw=true)
+![Gif de funcionamento da aplicação mobile.](https://github.com/pedrohdionisio/my-finances/blob/main/myfinances-mobile.gif?raw=true)
 
