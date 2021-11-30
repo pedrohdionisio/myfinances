@@ -3,6 +3,7 @@ const transactionReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_ITEM':
       return { ...state, transactions: [...state.transactions, action.payload] }
+
     case 'REMOVE_ITEM':
       return {
         ...state,
@@ -15,6 +16,7 @@ const transactionReducer = (state, action) => {
         },
         transactions: state.transactions.filter((item) => item.id !== action.payload),
       }
+
     case 'EDIT_ITEM':
       const updateTransaction = action.payload
 
@@ -28,8 +30,26 @@ const transactionReducer = (state, action) => {
         ...state,
         transactions: updateTransactions,
       }
+
+    case 'GET_TOTALS':
+      const expense = state.transactions.filter((item) => item.type === 'expense')
+      const revenue = state.transactions.filter((item) => item.type === 'revenue')
+      return {
+        ...state,
+        totalExpense: expense.reduce((a, b) => a + parseFloat(b.value), 0),
+        totalRevenue: revenue.reduce((a, b) => a + parseFloat(b.value), 0),
+      }
+
+    case 'GET_BALANCE':
+
+      return {
+        ...state,
+        balance: (state.totalRevenue - state.totalExpense),
+      }
+
     case 'ACTIVE_MODAL':
       return { ...state, modal: action.payload }
+
     case 'CLOSE_MODAL':
       return {
         ...state,
@@ -41,6 +61,7 @@ const transactionReducer = (state, action) => {
           message: '',
         },
       }
+
     default:
       return state
   }

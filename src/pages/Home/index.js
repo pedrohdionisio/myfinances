@@ -65,17 +65,17 @@ export default function Home() {
           <ResumeContainer justifyContent="space-between">
             <ResumeItem type="expense">
               <h2>Despesas</h2>
-              <span>R$ 2.560,85</span>
+              <span>R$ {state.totalExpense.toFixed(2)}</span>
             </ResumeItem>
 
             <ResumeItem>
               <h2>Receitas</h2>
-              <span>R$ 1.698,85</span>
+              <span>R$ {state.totalRevenue.toFixed(2)}</span>
             </ResumeItem>
 
-            <ResumeItem type="expense">
+            <ResumeItem type={state.balance >= 0 ? '' : 'expense'}>
               <h2>Balanço</h2>
-              <span>R$ -862,00</span>
+              <span>R$ {state.balance.toFixed(2)}</span>
             </ResumeItem>
           </ResumeContainer>
 

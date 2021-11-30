@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 
-import { createContext, useContext, useReducer } from 'react'
+import {
+  createContext, useContext, useEffect, useReducer,
+} from 'react'
 import transactionReducer from '../reducers/transactionReducer'
 
 const TransactionContext = createContext()
@@ -8,6 +10,9 @@ const TransactionContext = createContext()
 export const TransactionProvider = ({ children }) => {
   const initialState = {
     transactions: [],
+    totalExpense: 0,
+    totalRevenue: 0,
+    balance: 0,
     modal: {
       active: false,
       danger: false,
@@ -38,6 +43,11 @@ export const TransactionProvider = ({ children }) => {
   function handleEditTransaction(transaction) {
     dispatch({ type: 'EDIT_ITEM', payload: transaction })
   }
+
+  useEffect(() => {
+    dispatch({ type: 'GET_TOTALS' })
+    dispatch({ type: 'GET_BALANCE' })
+  }, [state.transactions])
 
   return (
     <TransactionContext.Provider value={{
