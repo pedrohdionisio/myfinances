@@ -100,11 +100,11 @@ export default function Home() {
               <div className="info">
                 <div className="info-header">
                   <h3 className="name">{transaction.name}</h3>
-                  <span className="category">{transaction.category}</span>
+                  {transaction.category && <span className="category">{transaction.category}</span>}
                 </div>
 
                 <span className="date">Realizada em: {formatDate(transaction.date)}</span>
-                <span className="price">R${transaction.value}</span>
+                <span className="price">R$ {transaction.value}</span>
               </div>
 
               <div className="actions">

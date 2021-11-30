@@ -33,6 +33,7 @@ export const Container = styled.div`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
 
   h1 {
+    word-break: break-all;
     color: ${({ theme, danger }) => (danger ? theme.colors.danger.main : theme.colors.gray[900])};
     font-size: 22px;
   }

@@ -101,12 +101,14 @@ export const NewTransactionButton = styled.button`
 `
 
 export const Card = styled.div`
+  position: relative;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   width: 100%;
-  height: 120px;
+  min-height: 120px;
 
   background: #ffffff;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
@@ -119,26 +121,21 @@ export const Card = styled.div`
   .info {
     .info-header {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       width: 100%;
 
       margin-bottom: 8px;
 
       .name {
-        overflow: hidden;
-        text-transform: uppercase;
-        text-overflow: ellipsis;
-        max-width: 200px;
+        word-break: break-all;
+        text-transform: capitalize;
         font-weight: bold;
         color: ${({ theme }) => theme.colors.gray[900]};
         margin-right: 16px;
       }
 
       .category {
-        overflow: hidden;
         text-transform: uppercase;
-        text-overflow: ellipsis;
-        max-width: 150px;
         font-weight: 900;
         font-size: 12px;
 
@@ -168,12 +165,18 @@ export const Card = styled.div`
   }
 
   .actions {
+    position: absolute;
+    right: 16px;
+    display: flex;
+    align-items: center;
+
     img {
       cursor: pointer;
     }
 
     a {
       img {
+        margin-top: 8px;
         margin-right: 8px;
       }
     }
