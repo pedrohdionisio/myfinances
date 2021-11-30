@@ -1,71 +1,47 @@
-# Getting Started with Create React App
+# MyFinances App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Olá! Este é um projeto de um gerenciador de finanças pessoais. Foi construído com ReactJS utilizando os Hooks e a Context API. Espero que gostem!
 
-## Available Scripts
+# Tecnologias Utilizadas
 
-In the project directory, you can run:
+ - [ReactJS](https://reactjs.org/docs/getting-started.html)
+ - [react-router-dom](https://reactrouter.com/)
+ - [styled-components](https://styled-components.com/)
+ - [prop-types](https://reactjs.org/docs/typechecking-with-proptypes.html)
+ - [uuid](https://github.com/uuidjs/uuid)
+ - [VS Code](https://code.visualstudio.com/)  com  [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)  e  [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-### `yarn start`
+# Instalação
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Primeiro, faça um clone do repositório em seu computador:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    git clone https://github.com/pedrohdionisio/pokedex-project.git
 
-### `yarn test`
+Após isso, acesse a pasta do projeto e instale as dependências utilizando o seguinte comando:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    yarn install
 
-### `yarn build`
+Ou, caso você utilize npm:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Executando a aplicação
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Para executar a aplicação basta utilizar o comando abaixo:
 
-### `yarn eject`
+    yarn start
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Ou, caso você utilize npm:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Aplicação
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Caso queira ver a aplicação rodando, clique [aqui](https://myfinances-pedrohdionisio.netlify.app/).
 
-## Learn More
+![Gif de funcionamento da aplicação.](https://github.com/pedrohdionisio/pokedex-project/blob/main/pokedex.gif?raw=true)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Comportamento no Mobile:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Gif de funcionamento da aplicação mobile.](https://github.com/pedrohdionisio/pokedex-project/blob/main/pokedex-mobile.gif?raw=true)
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# my-finances
