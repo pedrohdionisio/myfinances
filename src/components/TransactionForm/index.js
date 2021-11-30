@@ -26,7 +26,7 @@ export default function TransactionForm({ buttonLabel, updatedUser }) {
     errors, setError, removeError, getErrorMessageByFieldName,
   } = useErrors()
 
-  const isFormValid = name && value && type && category && date && errors.length === 0
+  const isFormValid = name && value && type && date && errors.length === 0
 
   const { handleAddTransaction, handleEditTransaction } = useTransaction()
 
@@ -59,16 +59,6 @@ export default function TransactionForm({ buttonLabel, updatedUser }) {
       setError({ field: 'value', message: 'Valor é obrigatório!' })
     } else {
       removeError('value')
-    }
-  }
-
-  function handleCategoryChange({ target }) {
-    setCategory(target.value)
-
-    if (!target.value) {
-      setError({ field: 'category', message: 'Categoria é obrigatório!' })
-    } else {
-      removeError('category')
     }
   }
 
@@ -129,15 +119,17 @@ export default function TransactionForm({ buttonLabel, updatedUser }) {
         </Select>
       </FormGroup>
 
-      <FormGroup error={getErrorMessageByFieldName('category')}>
-        <Input
-          type="text"
-          placeholder="Categoria*"
-          value={category}
-          onChange={handleCategoryChange}
-          error={getErrorMessageByFieldName('category')}
-        />
-      </FormGroup>
+      {(type === '' || type === 'expense') && (
+        <FormGroup error={getErrorMessageByFieldName('category')}>
+          <Select onChange={({ target }) => setCategory(target.value)} value={category}>
+            <option value="">Categoria*</option>
+            <option value="lazer">Lazer</option>
+            <option value="alimentação">Alimentação</option>
+            <option value="despesas">Despesas</option>
+            <option value="investimentos">Investimentos</option>
+          </Select>
+        </FormGroup>
+      )}
 
       <FormGroup>
         <Input
