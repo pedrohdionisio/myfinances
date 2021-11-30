@@ -61,7 +61,7 @@ export const ResumeItem = styled.div`
 
 export const ListHeader = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 
   margin-top: 24px;
@@ -79,8 +79,11 @@ export const ListHeader = styled.div`
 `
 
 export const NewTransactionButton = styled.button`
+  width: 180px;
+
   text-decoration: none;
   font-weight: 700;
+  font-size: 16px;
 
   background: transparent;
   color: ${({ theme }) => theme.colors.primary.main};
