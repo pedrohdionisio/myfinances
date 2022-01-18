@@ -2,8 +2,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { v4 as uuid } from 'uuid';
-import { useHistory } from 'react-router-dom'
+import { v4 as uuid } from 'uuid'
+import { useNavigate } from 'react-router-dom'
 
 import { ButtonContainer, Wrapper } from './styles'
 
@@ -31,7 +31,7 @@ export default function TransactionForm({ buttonLabel, updatedUser }) {
 
   const { handleAddTransaction, handleEditTransaction } = useTransaction()
 
-  const history = useHistory()
+  const navigate = useNavigate()
   const ref = useRef()
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export default function TransactionForm({ buttonLabel, updatedUser }) {
         },
       )
 
-      history.push('/')
+      navigate('/')
     } else if (updatedUser) {
       handleEditTransaction({
         id: updatedUser[0].id,
@@ -88,7 +88,7 @@ export default function TransactionForm({ buttonLabel, updatedUser }) {
         category,
         date,
       })
-      history.push('/')
+      navigate('/')
     }
   }
 
